@@ -25,7 +25,7 @@ class MyWidget(QMainWindow):
         self.repaint()
 
     def draw_flag(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
+        qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
         i = randint(3, 250)
         self.el.append([randint(10, 290) - i, randint(10, 290) - i, i * 2, i * 2])
         for a, b, c, d in self.el:
