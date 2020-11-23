@@ -13,16 +13,16 @@ class MyWidget(QMainWindow):
         self.el = []
         self.pushButton.clicked.connect(self.paint)
 
+    def paint(self):
+        self.do_paint = True
+        self.repaint()
+
     def paintEvent(self, event):
         if self.do_paint:
             qp = QPainter()
             qp.begin(self)
             self.draw_flag(qp)
             qp.end()
-
-    def paint(self):
-        self.do_paint = True
-        self.repaint()
 
     def draw_flag(self, qp):
         qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
