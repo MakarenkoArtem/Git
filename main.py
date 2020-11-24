@@ -5,6 +5,7 @@ from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QWidget, QApplication, QMainWindow
 
+
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -13,16 +14,16 @@ class MyWidget(QMainWindow):
         self.el = []
         self.pushButton.clicked.connect(self.paint)
 
-    def paint(self):
-        self.do_paint = True
-        self.repaint()
-
     def paintEvent(self, event):
         if self.do_paint:
             qp = QPainter()
             qp.begin(self)
             self.draw_flag(qp)
             qp.end()
+
+    def paint(self):
+        self.do_paint = True
+        self.repaint()
 
     def draw_flag(self, qp):
         qp.setBrush(QColor(255, 255, 0))
